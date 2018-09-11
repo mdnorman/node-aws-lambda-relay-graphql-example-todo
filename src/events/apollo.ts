@@ -1,10 +1,6 @@
 import { ApolloServer, gql } from 'apollo-server-lambda';
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+import { schema } from '../data/schema';
 
 const resolvers = {
   Query: {
@@ -13,7 +9,7 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-  typeDefs,
+  schema,
   resolvers,
 });
 
