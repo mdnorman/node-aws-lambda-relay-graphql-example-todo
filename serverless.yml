@@ -1,4 +1,4 @@
-service: CHANGEME
+service: node-aws-lambda-graphql-example-todo
 
 plugins:
   - serverless-domain-manager
@@ -17,17 +17,17 @@ custom:
   domainNameStage:
     test: test-api.${self:custom.baseDomainName}
     prod: api.${self:custom.baseDomainName}
-  baseDomainName: CHANGEME
+  baseDomainName: codesaplings.com
   customDomain:
     domainName: ${self:custom.domainName}
     certificateName: ${self:custom.domainName}
-    basePath: CHANGEME
+    basePath: todo
     stage: ${self:custom.stage}
     createRoute53Record: true
   documentation:
     info:
-      title: CHANGEME
-      description: CHANGEME
+      title: node-aws-lambda-graphql-example-todo
+      description: GraphQL Todo Example
       version: 1.0.0
 
 functions:
