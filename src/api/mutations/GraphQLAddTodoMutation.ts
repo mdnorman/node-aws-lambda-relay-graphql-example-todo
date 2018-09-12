@@ -2,7 +2,7 @@ import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { cursorForObjectInConnection, mutationWithClientMutationId } from 'graphql-relay';
 
 import { GraphQLTodoEdge } from '../model/GraphQLTodo';
-import { addTodo, getTodo, getTodos, getViewer } from '../../data/database';
+import { addTodo, getTodo, getTodos, getViewer } from '../../services/database';
 import { GraphQLUser } from '../model/GraphQLUser';
 
 export const GraphQLAddTodoMutation = mutationWithClientMutationId({

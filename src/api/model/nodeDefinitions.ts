@@ -1,6 +1,6 @@
 import { fromGlobalId, nodeDefinitions } from 'graphql-relay';
 
-import { getTodo, getUser, Todo, User } from '../../data/database';
+import { getTodo, getUser, Todo, User } from '../../services/database';
 import { GraphQLUser } from './GraphQLUser';
 import { GraphQLTodo } from './GraphQLTodo';
 

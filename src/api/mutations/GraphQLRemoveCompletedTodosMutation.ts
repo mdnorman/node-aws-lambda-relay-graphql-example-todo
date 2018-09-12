@@ -1,7 +1,7 @@
 import { GraphQLList, GraphQLString } from 'graphql';
 import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 
-import { getViewer, removeCompletedTodos } from '../../data/database';
+import { getViewer, removeCompletedTodos } from '../../services/database';
 import { GraphQLUser } from '../model/GraphQLUser';
 
 // TODO: Support plural deletes

@@ -2,7 +2,7 @@ import { GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId, mutationWithClientMutationId } from 'graphql-relay';
 
 import { GraphQLUser } from '../model/GraphQLUser';
-import { getViewer, removeTodo } from '../../data/database';
+import { getViewer, removeTodo } from '../../services/database';
 
 export const GraphQLRemoveTodoMutation = mutationWithClientMutationId({
   name: 'RemoveTodo',

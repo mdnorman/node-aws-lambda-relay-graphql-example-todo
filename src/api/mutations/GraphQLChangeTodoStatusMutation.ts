@@ -2,7 +2,7 @@ import { GraphQLBoolean, GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId, mutationWithClientMutationId } from 'graphql-relay';
 
 import { GraphQLTodo } from '../model/GraphQLTodo';
-import { changeTodoStatus, getTodo, getViewer } from '../../data/database';
+import { changeTodoStatus, getTodo, getViewer } from '../../services/database';
 import { GraphQLUser } from '../model/GraphQLUser';
 
 export const GraphQLChangeTodoStatusMutation = mutationWithClientMutationId({

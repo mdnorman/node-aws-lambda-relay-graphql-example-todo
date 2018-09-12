@@ -2,7 +2,7 @@ import { GraphQLID, GraphQLNonNull, GraphQLString } from 'graphql';
 import { fromGlobalId, mutationWithClientMutationId } from 'graphql-relay';
 
 import { GraphQLTodo } from '../model/GraphQLTodo';
-import { getTodo, renameTodo } from '../../data/database';
+import { getTodo, renameTodo } from '../../services/database';
 
 export const GraphQLRenameTodoMutation = mutationWithClientMutationId({
   name: 'RenameTodo',

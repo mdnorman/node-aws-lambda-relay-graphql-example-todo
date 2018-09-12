@@ -10,41 +10,10 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { GraphQLObjectType, GraphQLSchema } from 'graphql';
+import { GraphQLSchema } from 'graphql';
 
-import { getViewer } from '../data/database';
-
-import { GraphQLUser } from './model/GraphQLUser';
-import { nodeField } from './model/nodeDefinitions';
-import { GraphQLAddTodoMutation } from './mutations/GraphQLAddTodoMutation';
-import { GraphQLChangeTodoStatusMutation } from './mutations/GraphQLChangeTodoStatusMutation';
-import { GraphQLMarkAllTodosMutation } from './mutations/GraphQLMarkAllTodosMutation';
-import { GraphQLRemoveCompletedTodosMutation } from './mutations/GraphQLRemoveCompletedTodosMutation';
-import { GraphQLRenameTodoMutation } from './mutations/GraphQLRenameTodoMutation';
-import { GraphQLRemoveTodoMutation } from './mutations/GraphQLRemoveTodoMutation';
-
-const Query = new GraphQLObjectType({
-  name: 'Query',
-  fields: {
-    viewer: {
-      type: GraphQLUser,
-      resolve: () => getViewer(),
-    },
-    node: nodeField,
-  },
-});
-
-const Mutation = new GraphQLObjectType({
-  name: 'Mutation',
-  fields: {
-    addTodo: GraphQLAddTodoMutation,
-    changeTodoStatus: GraphQLChangeTodoStatusMutation,
-    markAllTodos: GraphQLMarkAllTodosMutation,
-    removeCompletedTodos: GraphQLRemoveCompletedTodosMutation,
-    removeTodo: GraphQLRemoveTodoMutation,
-    renameTodo: GraphQLRenameTodoMutation,
-  },
-});
+import { Query } from './model';
+import { Mutation } from './mutations';
 
 export const schema = new GraphQLSchema({
   query: Query,

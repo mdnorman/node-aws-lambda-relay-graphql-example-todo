@@ -10,6 +10,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+// NOTE: This module would ideally be split up into multiple modules for the data
+
 export class Todo {
   id: string;
   text: string;

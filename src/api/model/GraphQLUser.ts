@@ -2,7 +2,7 @@ import { GraphQLInt, GraphQLObjectType, GraphQLString } from 'graphql';
 
 import { connectionArgs, connectionFromArray, globalIdField } from 'graphql-relay';
 
-import { getTodos } from '../../data/database';
+import { getTodos } from '../../services/database';
 import { TodosConnection } from './GraphQLTodo';
 import { nodeInterface } from './nodeDefinitions';
 
