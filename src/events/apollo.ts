@@ -1,16 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-lambda';
 
-import { schema } from '../data/schema';
+import { schema } from '../api';
 
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-  },
-};
-
-const server = new ApolloServer({
-  schema,
-  resolvers,
-});
+const server = new ApolloServer({ schema });
 
 export const handler = server.createHandler();

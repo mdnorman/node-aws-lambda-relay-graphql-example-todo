@@ -46,7 +46,7 @@ import {
   removeCompletedTodos,
   removeTodo,
   renameTodo,
-} from './database';
+} from '../data/database';
 
 const { nodeInterface, nodeField } = nodeDefinitions(
   globalId => {

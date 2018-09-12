@@ -1,0 +1,10 @@
+{
+  "resource": "/",
+  "httpMethod": "POST",
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "body":
+    "{\n  \"operationName\": null,\n  \"query\": \"mutation\\n{\\naddTodo(input: { text:\\n\\\"Do something\\\" }) {\\ntodoEdge {\\nnode {\\nid\\ntext\\ncomplete\\n}\\n}\\n}\\n}\",\n  \"variables\": {}\n}\n"
+}
