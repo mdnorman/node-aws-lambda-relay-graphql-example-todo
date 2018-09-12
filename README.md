@@ -47,6 +47,22 @@ npm install -g serverless
 
 ## Development
 
+### Invoking locally
+
+Use serverless to run the server locally:
+
+```
+serverless invoke local -f graphql -d examples/invoke-data/query.json
+```
+
+### Invoking against test
+
+Use serverless to run the server against the test environment:
+
+```
+serverless invoke -f graphql -d examples/invoke-data/query.json
+```
+
 ### Prettier
 
 This project uses [Prettier], so please run it before checking in:

@@ -31,7 +31,7 @@ custom:
       version: 1.0.0
 
 functions:
-  apollo:
+  graphql:
     handler: dist/events/apollo.handler
     events:
     - http:

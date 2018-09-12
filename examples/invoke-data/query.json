@@ -1,0 +1,9 @@
+{
+  "resource": "/",
+  "httpMethod": "POST",
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "body": "{\n  \"operationName\": null,\n  \"query\": \"\",\n  \"variables\": {}\n}\n"
+}
