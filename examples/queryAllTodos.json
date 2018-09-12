@@ -6,5 +6,5 @@
   "pathParameters": null,
   "stageVariables": null,
   "body":
-    "{\n  \"operationName\": null,\n  \"query\": \"{\\n  viewer {\\n  id\\n  todos {\\n  edges {\\n  node {\\n  id\\n  text\\n}\\n}\\n}\\n}\\n}\",\n  \"variables\": {}\n}\n"
+    "{\n  \"operationName\": null,\n  \"query\": \"{\\n  viewer {\\n  id\\n  todos {\\n  edges {\\n  node {\\n  id\\n  text\\n  complete\\n}\\n}\\n}\\n}\\n}\",\n  \"variables\": {}\n}\n"
 }
