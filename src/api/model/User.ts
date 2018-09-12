@@ -3,10 +3,10 @@ import { GraphQLInt, GraphQLObjectType, GraphQLString } from 'graphql';
 import { connectionArgs, connectionFromArray, globalIdField } from 'graphql-relay';
 
 import { getTodos } from '../../services/database';
-import { TodosConnection } from './GraphQLTodo';
+import { TodosConnection } from './Todo';
 import { nodeInterface } from './nodeDefinitions';
 
-export const GraphQLUser = new GraphQLObjectType({
+export const User = new GraphQLObjectType({
   name: 'User',
   fields: {
     id: globalIdField('User'),

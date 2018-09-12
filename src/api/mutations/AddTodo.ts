@@ -1,18 +1,18 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { cursorForObjectInConnection, mutationWithClientMutationId } from 'graphql-relay';
 
-import { GraphQLTodoEdge } from '../model/GraphQLTodo';
+import { TodoEdge } from '../model/Todo';
 import { addTodo, getTodo, getTodos, getViewer } from '../../services/database';
-import { GraphQLUser } from '../model/GraphQLUser';
+import { User } from '../model/User';
 
-export const GraphQLAddTodoMutation = mutationWithClientMutationId({
+export const AddTodo = mutationWithClientMutationId({
   name: 'AddTodo',
   inputFields: {
     text: { type: new GraphQLNonNull(GraphQLString) },
   },
   outputFields: {
     todoEdge: {
-      type: GraphQLTodoEdge,
+      type: TodoEdge,
       resolve: ({ localTodoId }) => {
         const todo = getTodo(localTodoId);
         return {
@@ -22,7 +22,7 @@ export const GraphQLAddTodoMutation = mutationWithClientMutationId({
       },
     },
     viewer: {
-      type: GraphQLUser,
+      type: User,
       resolve: () => getViewer(),
     },
   },

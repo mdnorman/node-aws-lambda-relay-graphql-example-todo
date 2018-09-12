@@ -2,10 +2,10 @@ import { GraphQLList, GraphQLString } from 'graphql';
 import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 
 import { getViewer, removeCompletedTodos } from '../../services/database';
-import { GraphQLUser } from '../model/GraphQLUser';
+import { User } from '../model/User';
 
 // TODO: Support plural deletes
-export const GraphQLRemoveCompletedTodosMutation = mutationWithClientMutationId({
+export const RemoveCompletedTodos = mutationWithClientMutationId({
   name: 'RemoveCompletedTodos',
   outputFields: {
     deletedTodoIds: {
@@ -13,7 +13,7 @@ export const GraphQLRemoveCompletedTodosMutation = mutationWithClientMutationId(
       resolve: ({ deletedTodoIds }) => deletedTodoIds,
     },
     viewer: {
-      type: GraphQLUser,
+      type: User,
       resolve: () => getViewer(),
     },
   },

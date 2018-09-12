@@ -1,20 +1,20 @@
 import { GraphQLObjectType } from 'graphql';
 
-import { GraphQLAddTodoMutation } from './GraphQLAddTodoMutation';
-import { GraphQLChangeTodoStatusMutation } from './GraphQLChangeTodoStatusMutation';
-import { GraphQLMarkAllTodosMutation } from './GraphQLMarkAllTodosMutation';
-import { GraphQLRemoveCompletedTodosMutation } from './GraphQLRemoveCompletedTodosMutation';
-import { GraphQLRemoveTodoMutation } from './GraphQLRemoveTodoMutation';
-import { GraphQLRenameTodoMutation } from './GraphQLRenameTodoMutation';
+import { AddTodo } from './AddTodo';
+import { ChangeTodoStatus } from './ChangeTodoStatus';
+import { MarkAllTodos } from './MarkAllTodos';
+import { RemoveCompletedTodos } from './RemoveCompletedTodos';
+import { RemoveTodo } from './RemoveTodo';
+import { RenameTodo } from './RenameTodo';
 
 export const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    addTodo: GraphQLAddTodoMutation,
-    changeTodoStatus: GraphQLChangeTodoStatusMutation,
-    markAllTodos: GraphQLMarkAllTodosMutation,
-    removeCompletedTodos: GraphQLRemoveCompletedTodosMutation,
-    removeTodo: GraphQLRemoveTodoMutation,
-    renameTodo: GraphQLRenameTodoMutation,
+    addTodo: AddTodo,
+    changeTodoStatus: ChangeTodoStatus,
+    markAllTodos: MarkAllTodos,
+    removeCompletedTodos: RemoveCompletedTodos,
+    removeTodo: RemoveTodo,
+    renameTodo: RenameTodo,
   },
 });

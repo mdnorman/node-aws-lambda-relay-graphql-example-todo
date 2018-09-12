@@ -4,7 +4,7 @@ import { connectionDefinitions, globalIdField } from 'graphql-relay';
 
 import { nodeInterface } from './nodeDefinitions';
 
-export const GraphQLTodo = new GraphQLObjectType({
+export const Todo = new GraphQLObjectType({
   name: 'Todo',
   fields: {
     id: globalIdField('Todo'),
@@ -20,7 +20,7 @@ export const GraphQLTodo = new GraphQLObjectType({
   interfaces: [nodeInterface],
 });
 
-export const { connectionType: TodosConnection, edgeType: GraphQLTodoEdge } = connectionDefinitions({
+export const { connectionType: TodosConnection, edgeType: TodoEdge } = connectionDefinitions({
   name: 'Todo',
-  nodeType: GraphQLTodo,
+  nodeType: Todo,
 });
