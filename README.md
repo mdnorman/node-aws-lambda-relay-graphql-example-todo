@@ -52,7 +52,7 @@ npm install -g serverless
 Use serverless to run the server locally:
 
 ```
-serverless invoke local -f graphql -d examples/invoke-data/queryAllTodos.json
+serverless invoke local -f graphql -p examples/invoke-data/queryAllTodos.json
 ```
 
 ### Invoking against test
@@ -60,7 +60,7 @@ serverless invoke local -f graphql -d examples/invoke-data/queryAllTodos.json
 Use serverless to run the server against the test environment:
 
 ```
-serverless invoke -f graphql -d examples/invoke-data/addTodoMutation.json
+serverless invoke -f graphql -p examples/invoke-data/addTodoMutation.json
 ```
 
 ### Prettier
