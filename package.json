@@ -25,7 +25,9 @@
     "lint": "tslint -c tslint.json --project tsconfig.json && tslint -c tslint.json --project spec/tsconfig.json",
     "pretty": "pretty-quick --stage",
     "deploy:test": "serverless deploy -v --stage test",
-    "deploy": "serverless deploy -v --stage prod"
+    "deploy": "serverless deploy -v --stage prod",
+    "print-schema": "ts-node scripts/printSchema",
+    "save-schema": "ts-node scripts/printSchema > schema.graphql"
   },
   "dependencies": {
     "apollo-server-lambda": "2.0.6",

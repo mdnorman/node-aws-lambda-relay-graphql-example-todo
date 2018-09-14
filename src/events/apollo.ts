@@ -1,6 +1,6 @@
-import { ApolloServer, gql } from 'apollo-server-lambda';
+import { ApolloServer } from 'apollo-server-lambda';
 
-import { schema } from '../api';
+import { schema } from '../api/schema';
 
 const server = new ApolloServer({ schema });
 
