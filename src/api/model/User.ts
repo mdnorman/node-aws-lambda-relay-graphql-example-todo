@@ -6,7 +6,7 @@ import { getTodos } from '../../services/database';
 import { TodosConnection } from './Todo';
 import { nodeInterface } from './nodeDefinitions';
 
-export const User = new GraphQLObjectType({
+export const UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
     id: globalIdField('User'),

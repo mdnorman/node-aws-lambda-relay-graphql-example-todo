@@ -1,8 +1,8 @@
 import { fromGlobalId, nodeDefinitions } from 'graphql-relay';
 
-import { getTodo, getUser, Todo as TodoModel, User as UserModel } from '../../services/database';
-import { User } from './User';
-import { Todo } from './Todo';
+import { getTodo, getUser, Todo, User } from '../../services/database';
+import { UserType } from './User';
+import { TodoType } from './Todo';
 
 export const { nodeInterface, nodeField } = nodeDefinitions(
   globalId => {
@@ -16,11 +16,11 @@ export const { nodeInterface, nodeField } = nodeDefinitions(
     return null;
   },
   obj => {
-    if (obj instanceof TodoModel) {
-      return Todo;
+    if (obj instanceof Todo) {
+      return TodoType;
     }
-    if (obj instanceof UserModel) {
-      return User;
+    if (obj instanceof User) {
+      return UserType;
     }
     return null;
   },

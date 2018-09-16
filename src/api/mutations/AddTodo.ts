@@ -3,7 +3,7 @@ import { cursorForObjectInConnection, mutationWithClientMutationId } from 'graph
 
 import { TodoEdge } from '../model/Todo';
 import { addTodo, getTodo, getTodos, getViewer } from '../../services/database';
-import { User } from '../model/User';
+import { UserType } from '../model/User';
 
 export const AddTodo = mutationWithClientMutationId({
   name: 'AddTodo',
@@ -22,7 +22,7 @@ export const AddTodo = mutationWithClientMutationId({
       },
     },
     viewer: {
-      type: User,
+      type: UserType,
       resolve: () => getViewer(),
     },
   },

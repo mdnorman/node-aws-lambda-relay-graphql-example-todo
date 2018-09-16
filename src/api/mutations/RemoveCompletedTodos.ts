@@ -2,7 +2,7 @@ import { GraphQLList, GraphQLString } from 'graphql';
 import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 
 import { getViewer, removeCompletedTodos } from '../../services/database';
-import { User } from '../model/User';
+import { UserType } from '../model/User';
 
 // TODO: Support plural deletes
 export const RemoveCompletedTodos = mutationWithClientMutationId({
@@ -13,7 +13,7 @@ export const RemoveCompletedTodos = mutationWithClientMutationId({
       resolve: ({ deletedTodoIds }) => deletedTodoIds,
     },
     viewer: {
-      type: User,
+      type: UserType,
       resolve: () => getViewer(),
     },
   },

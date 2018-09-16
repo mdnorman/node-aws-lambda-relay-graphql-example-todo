@@ -1,7 +1,7 @@
 import { GraphQLID, GraphQLNonNull } from 'graphql';
 import { fromGlobalId, mutationWithClientMutationId } from 'graphql-relay';
 
-import { User } from '../model/User';
+import { UserType } from '../model/User';
 import { getViewer, removeTodo } from '../../services/database';
 
 export const RemoveTodo = mutationWithClientMutationId({
@@ -15,7 +15,7 @@ export const RemoveTodo = mutationWithClientMutationId({
       resolve: ({ id }) => id,
     },
     viewer: {
-      type: User,
+      type: UserType,
       resolve: () => getViewer(),
     },
   },

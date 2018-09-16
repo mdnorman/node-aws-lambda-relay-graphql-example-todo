@@ -1,9 +1,9 @@
 import { GraphQLBoolean, GraphQLList, GraphQLNonNull } from 'graphql';
 import { mutationWithClientMutationId } from 'graphql-relay';
 
-import { Todo } from '../model/Todo';
+import { TodoType } from '../model/Todo';
 import { getTodo, getViewer, markAllTodos } from '../../services/database';
-import { User } from '../model/User';
+import { UserType } from '../model/User';
 
 export const MarkAllTodos = mutationWithClientMutationId({
   name: 'MarkAllTodos',
@@ -12,11 +12,11 @@ export const MarkAllTodos = mutationWithClientMutationId({
   },
   outputFields: {
     changedTodos: {
-      type: new GraphQLList(Todo),
+      type: new GraphQLList(TodoType),
       resolve: ({ changedTodoLocalIds }) => changedTodoLocalIds.map(getTodo),
     },
     viewer: {
-      type: User,
+      type: UserType,
       resolve: () => getViewer(),
     },
   },
