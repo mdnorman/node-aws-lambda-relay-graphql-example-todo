@@ -3,6 +3,7 @@ service: node-aws-lambda-graphql-example-todo
 plugins:
   - serverless-domain-manager
   - serverless-aws-documentation
+  - serverless-offline
 
 provider:
   name: aws
