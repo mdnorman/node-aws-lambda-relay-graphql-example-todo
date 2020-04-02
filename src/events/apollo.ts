@@ -1,6 +1,6 @@
-import { ApolloServer } from 'apollo-server-lambda';
+const { ApolloServer } = require('apollo-server-lambda');
 
-import { schema } from '../api/schema';
+import { schema } from '../api';
 
 const server = new ApolloServer({ schema });
 
