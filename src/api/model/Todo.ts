@@ -1,4 +1,4 @@
-import { GraphQLBoolean, GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLBoolean, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql';
 
 import { connectionDefinitions, globalIdField } from 'graphql-relay';
 
@@ -9,11 +9,11 @@ export const TodoType = new GraphQLObjectType({
   fields: {
     id: globalIdField('Todo'),
     text: {
-      type: GraphQLString,
+      type: GraphQLNonNull(GraphQLString),
       resolve: obj => obj.text,
     },
     complete: {
-      type: GraphQLBoolean,
+      type: GraphQLNonNull(GraphQLBoolean),
       resolve: obj => obj.complete,
     },
   },
@@ -22,5 +22,5 @@ export const TodoType = new GraphQLObjectType({
 
 export const { connectionType: TodosConnection, edgeType: TodoEdge } = connectionDefinitions({
   name: 'Todo',
-  nodeType: TodoType,
+  nodeType: GraphQLNonNull(TodoType),
 });

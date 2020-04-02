@@ -12,7 +12,7 @@ export const AddTodo = mutationWithClientMutationId({
   },
   outputFields: {
     todoEdge: {
-      type: TodoEdge,
+      type: GraphQLNonNull(TodoEdge),
       resolve: ({ localTodoId }) => {
         const todo = getTodo(localTodoId);
         return {

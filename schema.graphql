@@ -4,7 +4,7 @@ input AddTodoInput {
 }
 
 type AddTodoPayload {
-  todoEdge: TodoEdge
+  todoEdge: TodoEdge!
   viewer: User
   clientMutationId: String
 }
@@ -153,7 +153,7 @@ type TodoEdge {
   """
   The item at the end of the edge
   """
-  node: Todo
+  node: Todo!
 
   """
   A cursor for use in pagination
@@ -166,7 +166,7 @@ type User implements Node {
   The ID of an object
   """
   id: ID!
-  todos(status: String = "any", after: String, first: Int, before: String, last: Int): TodoConnection
+  todos(status: String = "any", after: String, first: Int, before: String, last: Int): TodoConnection!
   totalCount: Int
   completedCount: Int
 }

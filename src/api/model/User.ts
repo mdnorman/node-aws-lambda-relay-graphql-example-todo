@@ -1,9 +1,9 @@
-import { GraphQLInt, GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql';
 
 import { connectionArgs, connectionFromArray, globalIdField } from 'graphql-relay';
 
 import { getTodos } from '../../services/database';
-import { TodosConnection } from './Todo';
+import { TodosConnection, TodoType } from './Todo';
 import { nodeInterface } from './nodeDefinitions';
 
 export const UserType = new GraphQLObjectType({
@@ -11,7 +11,7 @@ export const UserType = new GraphQLObjectType({
   fields: {
     id: globalIdField('User'),
     todos: {
-      type: TodosConnection,
+      type: GraphQLNonNull(TodosConnection),
       args: {
         status: {
           type: GraphQLString,
