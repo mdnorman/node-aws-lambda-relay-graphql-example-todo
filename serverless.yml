@@ -9,13 +9,14 @@ provider:
   name: aws
   runtime: nodejs12.x
   profile: serverless
-  stage: test
+  stage: dev
   region: us-east-1
 
 custom:
   stage: ${opt:stage, self:provider.stage}
   domainName: ${self:custom.domainNameStage.${self:custom.stage}}
   domainNameStage:
+    dev: dev-api.${self:custom.baseDomainName}
     test: test-api.${self:custom.baseDomainName}
     prod: api.${self:custom.baseDomainName}
   baseDomainName: codesaplings.com
@@ -25,6 +26,15 @@ custom:
     basePath: todo
     stage: ${self:custom.stage}
     createRoute53Record: true
+  environmentValues: ${self:custom.environmentValuesStage.${self:custom.stage}}
+  environmentValuesStage:
+    dev:
+      NODE_ENV: development
+    test:
+      NODE_ENV: test
+    prod:
+      NODE_ENV: production
+
   documentation:
     info:
       title: node-aws-lambda-graphql-example-todo
@@ -35,18 +45,18 @@ functions:
   graphql:
     handler: dist/events/apollo.handler
     events:
-    - http:
-        path: graphql
-        method: get
-        cors: true
-        documentation:
-          summary: GraphQL Server
-          description: GraphQL Server
+      - http:
+          path: graphql
+          method: get
+          cors: true
+          documentation:
+            summary: GraphQL Server
+            description: GraphQL Server
 
-    - http:
-        path: graphql
-        method: post
-        cors: true
-        documentation:
-          summary: GraphQL Server
-          description: GraphQL Server
+      - http:
+          path: graphql
+          method: post
+          cors: true
+          documentation:
+            summary: GraphQL Server
+            description: GraphQL Server
