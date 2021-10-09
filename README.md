@@ -34,7 +34,7 @@ Many popular IDEs and editors support this out of the box or with a plugin.
 2.  Change the base `custom.baseDomainName` property in `serverless.yml` to the zone name, eg `whatever.com`
 3.  Then run:
     ```
-    npx serverless create_domain
+    npx serverless create_domain --stage test
     ```
 
 ## Development
@@ -58,7 +58,7 @@ AWS_SDK_LOAD_CONFIG=true npx serverless offline
 Use serverless to run the server against the test environment:
 
 ```
-npx serverless invoke -f graphql -p examples/invoke-data/addTodoMutation.json
+npx serverless invoke --stage test -f graphql -p examples/invoke-data/addTodoMutation.json
 ```
 
 ### Prettier
@@ -89,16 +89,8 @@ Many IDEs and editors support TSLint.
 
 This project uses [Jest](https://jestjs.io/) for testing. Run tests before checking in.
 
-### Unit Tests
-
 ```
 npm test
-```
-
-### Integration Tests
-
-```
-npm run test:integration
 ```
 
 ## Building
@@ -118,19 +110,19 @@ npm run build
 ### Test
 
 ```
-npm run deploy:test
+npm run deploy
 ```
 
 #### Checking logs
 
 ```
-npx serverless logs -t -f graphql
+npx serverless logs --stage test -t -f graphql
 ```
 
 ### Production
 
 ```
-npm run deploy
+npm run deploy:prod
 ```
 
 #### Checking logs

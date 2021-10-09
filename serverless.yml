@@ -7,13 +7,26 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   profile: serverless
   stage: dev
   region: us-east-1
 
+  logs:
+    restApi: true
+
+  tracing:
+    apiGateway: true
+    lambda: true
+
+  environment:
+    DEBUG: ${self:custom.environment.debugLog}
+    NODE_ENV: ${self:custom.environment.nodeEnvironment}
+
 custom:
   stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region, self:provider.region}
+
   domainName: ${self:custom.domainNameStage.${self:custom.stage}}
   domainNameStage:
     dev: dev-api.${self:custom.baseDomainName}
@@ -26,20 +39,36 @@ custom:
     basePath: todo
     stage: ${self:custom.stage}
     createRoute53Record: true
-  environmentValues: ${self:custom.environmentValuesStage.${self:custom.stage}}
-  environmentValuesStage:
-    dev:
-      NODE_ENV: development
-    test:
-      NODE_ENV: test
-    prod:
-      NODE_ENV: production
+  environment:
+    debugLog: ${self:custom.environment.debugLogStage.${self:custom.stage}}
+    debugLogStage:
+      dev: ''
+      test: ''
+      prod: ''
+    nodeEnvironment: ${self:custom.environment.nodeEnvironmentStage.${self:custom.stage}}
+    nodeEnvironmentStage:
+      dev: development
+      test: test
+      prod: production
 
   documentation:
     info:
       title: node-aws-lambda-graphql-example-todo
       description: GraphQL Todo Example
       version: 1.0.0
+
+package:
+  individually: false
+
+  exclude:
+    - .circleci/**
+    - .idea/**
+    - .env*
+    - examples/**
+    - scripts/**
+    - spec/**
+    - tmp/**
+    - '**/node_modules/aws-sdk/**'
 
 functions:
   graphql:
